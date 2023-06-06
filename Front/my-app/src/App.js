@@ -16,11 +16,11 @@ export default function App() {
   function createPost() {
     axios
       .post(baseURL, {
-        title: "Hello World!",
-        body: "This is a new post."
+        id: "1",
+        name: "This is a new post."
       })
       .then((response) => {
-        alert("hola");
+       console.log(response.data) ;
       });
   }
 
@@ -28,9 +28,9 @@ export default function App() {
 
   return (
     <div>
-      <h1>hohoh</h1>
-      <p>hhoh</p>
-      <button onClick={createPost}>Create Post</button>
+      <h1>CUENTOS INFANTILES</h1>
+      <p>Crear Cuentos</p>
+      <button onClick={createPost}>Create</button>
     </div>
   );
 }

@@ -5,16 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCuentos.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly ILogger<UsersController> _logger;
-        private readonly ServiceUsers _serviceUsers;
-        private readonly ServiceCosmos _serviceCosmos;
+        private readonly UserService _serviceUsers;
 
 
-        public UsersController( ILogger<UsersController> logger, ServiceUsers serviceUser)
+        public UsersController( ILogger<UsersController> logger, UserService serviceUser)
         {
             _logger = logger;
             _serviceUsers= serviceUser;
@@ -24,12 +23,12 @@ namespace ApiCuentos.Controllers
 
       
         [HttpPost]
-        public  string PostUser(User user)
+        public async Task<Product>  Create(Product product)
         {
 
             _logger.LogInformation("ggyui");
 
-            return _serviceUsers.ObtMsj();
+          return await _serviceUsers.CreateUser();
         }
 
         

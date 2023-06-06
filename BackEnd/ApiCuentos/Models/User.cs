@@ -2,11 +2,10 @@
 
 namespace ApiCuentos.Models
 {
-    public class User
-    {
-        public int Id { get; set; }
-
-        public string? Name { get; set; }
-
-    }
+    public record User(
+        string id,
+        string name,
+        string email,
+        string password);
+    
 }
